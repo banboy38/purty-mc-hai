@@ -20,7 +20,7 @@ export default async function handler(req, res) {
 
         try{
 
-            await axios.patch("http://127.0.0.1:3000/api/setPhysioTime", {id:id, day:day, time:time})
+            await axios.patch("https://purty-mc-hai.vercel.app/api/setPhysioTime", {id:id, day:day, time:time})
     
             let tempmin = (Number(time.split(":")[1])+15)%60
             let temphr = Number(time.split(":")[0])
@@ -29,7 +29,7 @@ export default async function handler(req, res) {
                 tempmin = "00"
             }            
             // console.log({id:id, day:day, time:temphr+":"+tempmin});
-            await axios.patch("http://127.0.0.1:3000/api/setPhysioTime", {id:id, day:day, time:temphr+":"+tempmin})
+            await axios.patch("https://purty-mc-hai.vercel.app/api/setPhysioTime", {id:id, day:day, time:temphr+":"+tempmin})
 
             tempmin = (Number(tempmin)+15)%60
             temphr = Number(temphr)
@@ -38,7 +38,7 @@ export default async function handler(req, res) {
                 tempmin = "00"
             }
             // console.log({id:id, day:day, time:temphr+":"+tempmin});
-            await axios.patch("http://127.0.0.1:3000/api/setPhysioTime", {id:id, day:day, time:temphr+":"+tempmin})
+            await axios.patch("https://purty-mc-hai.vercel.app/api/setPhysioTime", {id:id, day:day, time:temphr+":"+tempmin})
 
             res.status(200).json("Success");
         }
